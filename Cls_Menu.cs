@@ -34,7 +34,7 @@ namespace Examen_1
                 switch (opcion)
                 {
                     case 1:// Agregar Empleados
-
+                        Cls_Empleado.agregarEmpleado();
                         break;
                     case 2:// Consultar Empleados
 
@@ -46,19 +46,23 @@ namespace Examen_1
 
                         break;
                     case 5:// Inicializar Arreglos
-
+                        Cls_Empleado.inicializarArreglos();
                         break;
                     case 6:// Reportes
                         
                         break;
                     case 7:
+                        Console.Clear();
+                        Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+                        Console.WriteLine(" ");
                         Console.WriteLine("Saliendo... Gracias por usar el Sistema de RH");
+                        Console.ReadLine();
                         break;
                     default:
                         Console.Clear();
                         Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
                         Console.WriteLine(" ");
-                        Console.WriteLine($"La Opcion: '" + opcion + "' no es valida");
+                        Console.WriteLine($"La opcion seleccionada no es valida");
                         Console.WriteLine(" ");
                         Console.WriteLine("Presione una tecla para continuar...");
                         Console.ReadKey();

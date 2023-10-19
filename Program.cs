@@ -10,6 +10,9 @@ namespace Examen_1
     {
         static void Main(string[] args)
         {
+            // Desplegar el menu principal
+            Cls_Menu.desplegarMenu();
+
         }
     }
 }

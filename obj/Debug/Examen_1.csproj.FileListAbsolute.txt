@@ -1,0 +1,7 @@
+C:\Git\Universidad\Programacion 3\Examen_1\bin\Debug\Examen_1.exe.config
+C:\Git\Universidad\Programacion 3\Examen_1\bin\Debug\Examen_1.exe
+C:\Git\Universidad\Programacion 3\Examen_1\bin\Debug\Examen_1.pdb
+C:\Git\Universidad\Programacion 3\Examen_1\obj\Debug\Examen_1.csproj.AssemblyReference.cache
+C:\Git\Universidad\Programacion 3\Examen_1\obj\Debug\Examen_1.csproj.CoreCompileInputs.cache
+C:\Git\Universidad\Programacion 3\Examen_1\obj\Debug\Examen_1.exe
+C:\Git\Universidad\Programacion 3\Examen_1\obj\Debug\Examen_1.pdb

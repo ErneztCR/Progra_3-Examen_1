@@ -70,7 +70,7 @@ namespace Examen_1
                 Console.ReadLine();
 
             } while (respuesta == 's');
-        }   
+        }
 
         public static void consultarEmpleado()
         {
@@ -105,6 +105,243 @@ namespace Examen_1
                 Console.WriteLine("Presione una tecla para continuar...");
                 Console.ReadLine();
             }
+        }
+
+        public static void modificarEmpleado()
+        {
+            Console.Clear();
+            Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+            Console.WriteLine(" ");
+            Console.WriteLine("***MODIFICAR EMPLEADO***");
+            Console.WriteLine(" ");
+
+            Console.Write("Ingrese la cédula del empleado que desea modificar: ");
+            string cedulaBuscada = Console.ReadLine();
+
+            // Buscar la posición del empleado en el arreglo
+            posicion = Array.IndexOf(cedula, cedulaBuscada);
+
+            if (posicion == -1)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("No se encontró el empleado");
+            }
+            else
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine($"Cédula: {cedula[posicion]}");
+                Console.WriteLine($"Nombre actual: {nombre[posicion]}");
+                Console.WriteLine($"Dirección actual: {direccion[posicion]}");
+                Console.WriteLine($"Teléfono actual: {telefono[posicion]}");
+                Console.WriteLine($"Salario actual: {salario[posicion]}");
+                Console.WriteLine(" ");
+
+                // Solicitar nuevos datos al usuario
+                Console.Write("Ingrese el nuevo nombre del empleado: ");
+                nombre[posicion] = Console.ReadLine();
+                Console.Write("Ingrese la nueva dirección del empleado: ");
+                direccion[posicion] = Console.ReadLine();
+                Console.Write("Ingrese el nuevo teléfono del empleado: ");
+                telefono[posicion] = Console.ReadLine();
+                Console.Write("Ingrese el nuevo salario del empleado: ");
+                float.TryParse(Console.ReadLine(), out salario[posicion]);
+
+                Console.WriteLine(" ");
+                Console.WriteLine("Empleado modificado con éxito");
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+        }
+
+        public static void borrarEmpleado()
+        {
+            Console.Clear();
+            Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+            Console.WriteLine(" ");
+            Console.WriteLine("***BORRAR EMPLEADO***");
+            Console.WriteLine(" ");
+
+            Console.Write("Ingrese la cédula del empleado que desea borrar: ");
+            string cedulaBuscada = Console.ReadLine();
+
+            // Buscar la posición del empleado en el arreglo
+            posicion = Array.IndexOf(cedula, cedulaBuscada);
+
+            if (posicion == -1)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine("No se encontró el empleado");
+            }
+            else
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine($"Cédula: {cedula[posicion]}");
+                Console.WriteLine($"Nombre: {nombre[posicion]}");
+                Console.WriteLine($"Dirección: {direccion[posicion]}");
+                Console.WriteLine($"Teléfono: {telefono[posicion]}");
+                Console.WriteLine($"Salario: {salario[posicion]}");
+                Console.WriteLine(" ");
+
+                // Confirmar la eliminación del empleado
+                Console.Write("¿Está seguro de que desea borrar este empleado? (s/n): ");
+                char respuesta = Convert.ToChar(Console.ReadLine().ToLower());
+
+                if (respuesta == 's')
+                {
+                    // Borrar el empleado (reiniciar los datos en esa posición)
+                    cedula[posicion] = " ";
+                    nombre[posicion] = " ";
+                    direccion[posicion] = " ";
+                    telefono[posicion] = " ";
+                    salario[posicion] = 0f;
+                    Console.WriteLine("Empleado borrado con éxito");
+                }
+                else
+                {
+                    Console.WriteLine("Borrado cancelado");
+                }
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+        }
+
+        public static void reportes()
+        {
+            int opcion = 0;
+
+            do 
+            {
+                Console.Clear();
+                Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+                Console.WriteLine(" ");
+                Console.WriteLine("***MENU REPORTES***");
+                Console.WriteLine(" ");
+                Console.WriteLine("1. Consultar Empleados");
+                Console.WriteLine("2. Listar todos los empleados");
+                Console.WriteLine("3. Calcular y mostrar el promedio de los salarios");
+                Console.WriteLine("4. Calcular y mostrar el salario más alto y el más bajo de todos los empleados");
+                Console.WriteLine("5. Inicializar Arreglos");
+                Console.WriteLine("6. Reportes");
+                Console.WriteLine("7. Salir");
+                Console.WriteLine(" ");
+                Console.Write("Ingrese una opcion: ");
+
+                int.TryParse(Console.ReadLine(), out opcion); // evalua si el valor ingresado es un numero
+
+                switch (opcion)
+                {
+                    case 1:// Consultar Empleados
+                        Cls_Empleado.consultarEmpleado();
+                        break;
+                    case 2:// Listar todos los empleados
+                        
+                        break;
+                    case 3:// Calcular y mostrar el promedio de los salarios
+                        
+                        break;
+                    case 4:// Calcular y mostrar el salario más alto y el más bajo de todos los empleados
+                        
+                        break;
+                    case 5:// Volver al menu principal
+                        Console.Clear();
+                        Cls_Menu.desplegarMenu();
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+                        Console.WriteLine(" ");
+                        Console.WriteLine($"La opcion seleccionada no es valida");
+                        Console.WriteLine(" ");
+                        Console.WriteLine("Presione una tecla para continuar...");
+                        Console.ReadKey();
+                        break;
+                }
+
+            } while (opcion != 5);
+
+        }
+
+        public static void listarEmpleados()
+        {
+            Console.Clear();
+            Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+            Console.WriteLine(" ");
+            Console.WriteLine("***LISTAR EMPLEADOS***");
+            Console.WriteLine(" ");
+
+            for (int i = 0; i < indice; i++)
+            {
+                Console.WriteLine(" ");
+                Console.WriteLine($"Cedula: {cedula[i]}");
+                Console.WriteLine($"Nombre: {nombre[i]}");
+                Console.WriteLine($"Direccion: {direccion[i]}");
+                Console.WriteLine($"Telefono: {telefono[i]}");
+                Console.WriteLine($"Salario: {salario[i]}");
+                Console.WriteLine(" ");
+            }
+
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+        }
+
+        public static void promedioSalarios()
+        {
+            Console.Clear();
+            Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+            Console.WriteLine(" ");
+            Console.WriteLine("***PROMEDIO DE SALARIOS***");
+            Console.WriteLine(" ");
+
+            float suma = 0f;
+
+            for (int i = 0; i < indice; i++)
+            {
+                suma += salario[i];
+            }
+
+            float promedio = suma / indice;
+
+            Console.WriteLine(" ");
+            Console.WriteLine($"El promedio de los salarios es: {promedio}");
+            Console.WriteLine(" ");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
+        }
+
+        public static void salarioMaximoMinimo()
+        {
+            Console.Clear();
+            Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+            Console.WriteLine(" ");
+            Console.WriteLine("***SALARIO MAXIMO Y MINIMO***");
+            Console.WriteLine(" ");
+
+            float maximo = salario[0];
+            float minimo = salario[0];
+
+            for (int i = 0; i < indice; i++)
+            {
+                if (salario[i] > maximo)
+                {
+                    maximo = salario[i];
+                }
+
+                if (salario[i] < minimo)
+                {
+                    minimo = salario[i];
+                }
+            }
+
+            Console.WriteLine(" ");
+            Console.WriteLine($"El salario máximo es: {maximo}");
+            Console.WriteLine($"El salario mínimo es: {minimo}");
+            Console.WriteLine(" ");
+            Console.WriteLine("Presione una tecla para continuar...");
+            Console.ReadLine();
         }
     }
 }

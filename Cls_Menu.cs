@@ -37,19 +37,19 @@ namespace Examen_1
                         Cls_Empleado.agregarEmpleado();
                         break;
                     case 2:// Consultar Empleados
-
+                        Cls_Empleado.consultarEmpleado();
                         break;
                     case 3:// Modificar Empleados
-                        
+                        Cls_Empleado.modificarEmpleado();
                         break;
                     case 4:// Borrar Empleados
-
+                        Cls_Empleado.borrarEmpleado();
                         break;
                     case 5:// Inicializar Arreglos
                         Cls_Empleado.inicializarArreglos();
                         break;
                     case 6:// Reportes
-                        
+                        Cls_Empleado.reportes();
                         break;
                     case 7:
                         Console.Clear();

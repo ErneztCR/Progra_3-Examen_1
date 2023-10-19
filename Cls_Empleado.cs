@@ -41,14 +41,13 @@ namespace Examen_1
         {
             char respuesta;
 
-            Console.Clear();
-            Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
-            Console.WriteLine(" ");
-            Console.WriteLine("***AGREGAR EMPLEADO***");
-            Console.WriteLine(" ");
-
             do
             {
+                Console.Clear();
+                Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+                Console.WriteLine(" ");
+                Console.WriteLine("***AGREGAR EMPLEADO***");
+                Console.WriteLine(" ");
                 Console.Write("Ingrese la cedula del empleado: ");
                 cedula[indice] = Console.ReadLine();
                 Console.Write("Ingrese el nombre del empleado: ");
@@ -66,7 +65,7 @@ namespace Examen_1
                 Console.WriteLine(" ");
                 Console.WriteLine("Empleado agregado con exito");
                 Console.WriteLine(" ");
-                Console.WriteLine("Desea ingresar otro vehiculo? (s/n)");
+                Console.WriteLine("Desea ingresar otro empleado? (s/n)");
                 respuesta = Convert.ToChar(Console.ReadLine().ToLower());
 
             } while (respuesta == 's');
@@ -87,14 +86,19 @@ namespace Examen_1
 
             if (posicion == -1)
             {
+                Console.Clear();
                 Console.WriteLine(" ");
-                Console.WriteLine("No se encontro el empleado");
+                Console.WriteLine($"No se encontro el empleado con la Cedula: " + cedula);
                 Console.WriteLine(" ");
-                Console.WriteLine("Presione una tecla para continuar...");
+                Console.WriteLine("Presione una tecla para volver...");
                 Console.ReadLine();
             }
             else
             {
+                Console.Clear();
+                Console.WriteLine("Sistema de Recursos Humanos: Modulo de Gestión de Empleados");
+                Console.WriteLine(" ");
+                Console.WriteLine("***CONSULTAR EMPLEADO***");
                 Console.WriteLine(" ");
                 Console.WriteLine($"Cedula: {Cls_Empleado.cedula[posicion]}");
                 Console.WriteLine($"Nombre: {Cls_Empleado.nombre[posicion]}");
@@ -123,8 +127,12 @@ namespace Examen_1
 
             if (posicion == -1)
             {
+                Console.Clear();
                 Console.WriteLine(" ");
-                Console.WriteLine("No se encontró el empleado");
+                Console.WriteLine($"No se encontro el empleado con la Cedula: " + cedula);
+                Console.WriteLine(" ");
+                Console.WriteLine("Presione una tecla para volver...");
+                Console.ReadLine();
             }
             else
             {
@@ -236,13 +244,13 @@ namespace Examen_1
                         Cls_Empleado.consultarEmpleado();
                         break;
                     case 2:// Listar todos los empleados
-                        
+                        Cls_Empleado.listarEmpleados();
                         break;
                     case 3:// Calcular y mostrar el promedio de los salarios
-                        
+                        Cls_Empleado.promedioSalarios();
                         break;
                     case 4:// Calcular y mostrar el salario más alto y el más bajo de todos los empleados
-                        
+                        Cls_Empleado.salarioMaximoMinimo();
                         break;
                     case 5:// Volver al menu principal
                         Console.Clear();
@@ -303,7 +311,6 @@ namespace Examen_1
 
             float promedio = suma / indice;
 
-            Console.WriteLine(" ");
             Console.WriteLine($"El promedio de los salarios es: {promedio}");
             Console.WriteLine(" ");
             Console.WriteLine("Presione una tecla para continuar...");
@@ -334,7 +341,6 @@ namespace Examen_1
                 }
             }
 
-            Console.WriteLine(" ");
             Console.WriteLine($"El salario máximo es: {maximo}");
             Console.WriteLine($"El salario mínimo es: {minimo}");
             Console.WriteLine(" ");

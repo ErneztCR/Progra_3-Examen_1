@@ -61,13 +61,13 @@ namespace Examen_1
                 float.TryParse(Console.ReadLine(), out salario[indice]);
 
                 indice++;
+                posicion++;
 
                 Console.WriteLine(" ");
                 Console.WriteLine("Empleado agregado con exito");
                 Console.WriteLine(" ");
                 Console.WriteLine("Desea ingresar otro vehiculo? (s/n)");
                 respuesta = Convert.ToChar(Console.ReadLine().ToLower());
-                Console.ReadLine();
 
             } while (respuesta == 's');
         }
@@ -224,9 +224,7 @@ namespace Examen_1
                 Console.WriteLine("2. Listar todos los empleados");
                 Console.WriteLine("3. Calcular y mostrar el promedio de los salarios");
                 Console.WriteLine("4. Calcular y mostrar el salario más alto y el más bajo de todos los empleados");
-                Console.WriteLine("5. Inicializar Arreglos");
-                Console.WriteLine("6. Reportes");
-                Console.WriteLine("7. Salir");
+                Console.WriteLine("5. Volver al Menu Principal");
                 Console.WriteLine(" ");
                 Console.Write("Ingrese una opcion: ");
 

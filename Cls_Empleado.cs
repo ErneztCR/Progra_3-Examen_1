@@ -129,10 +129,7 @@ namespace Examen_1
             {
                 Console.Clear();
                 Console.WriteLine(" ");
-                Console.WriteLine($"No se encontro el empleado con la Cedula: " + cedula);
-                Console.WriteLine(" ");
-                Console.WriteLine("Presione una tecla para volver...");
-                Console.ReadLine();
+                Console.WriteLine($"No se encontro el empleado con la Cedula: " + cedulaBuscada);
             }
             else
             {
@@ -179,43 +176,44 @@ namespace Examen_1
 
             if (posicion == -1)
             {
+                Console.Clear();
                 Console.WriteLine(" ");
-                Console.WriteLine("No se encontró el empleado");
+                Console.WriteLine($"No se encontró el empleado con la Cedula: " + cedula);
+                Console.WriteLine(" ");
+                Console.WriteLine("Presione una tecla para volver...");
+                Console.ReadLine();
             }
             else
             {
-                Console.WriteLine(" ");
-                Console.WriteLine($"Cédula: {cedula[posicion]}");
-                Console.WriteLine($"Nombre: {nombre[posicion]}");
-                Console.WriteLine($"Dirección: {direccion[posicion]}");
-                Console.WriteLine($"Teléfono: {telefono[posicion]}");
-                Console.WriteLine($"Salario: {salario[posicion]}");
-                Console.WriteLine(" ");
-
-                // Confirmar la eliminación del empleado
-                Console.Write("¿Está seguro de que desea borrar este empleado? (s/n): ");
-                char respuesta = Convert.ToChar(Console.ReadLine().ToLower());
-
-                if (respuesta == 's')
+                // Mover todos los empleados a la izquierda para llenar el espacio
+                for (int i = posicion; i < indice - 1; i++)
                 {
-                    // Borrar el empleado (reiniciar los datos en esa posición)
-                    cedula[posicion] = " ";
-                    nombre[posicion] = " ";
-                    direccion[posicion] = " ";
-                    telefono[posicion] = " ";
-                    salario[posicion] = 0f;
-                    Console.WriteLine("Empleado borrado con éxito");
+                    cedula[i] = cedula[i + 1];
+                    nombre[i] = nombre[i + 1];
+                    direccion[i] = direccion[i + 1];
+                    telefono[i] = telefono[i + 1];
+                    salario[i] = salario[i + 1];
                 }
-                else
-                {
-                    Console.WriteLine("Borrado cancelado");
-                }
+
+                // Establecer el último empleado como vacío
+                cedula[indice - 1] = " ";
+                nombre[indice - 1] = " ";
+                direccion[indice - 1] = " ";
+                telefono[indice - 1] = " ";
+                salario[indice - 1] = 0f;
+
+                // Decrementar el contador de empleados
+                indice--;
+
+                Console.Clear();
+                Console.WriteLine("Empleado borrado con éxito");
             }
 
             Console.WriteLine(" ");
             Console.WriteLine("Presione una tecla para continuar...");
             Console.ReadLine();
         }
+
 
         public static void reportes()
         {
@@ -281,13 +279,17 @@ namespace Examen_1
 
             for (int i = 0; i < indice; i++)
             {
-                Console.WriteLine(" ");
-                Console.WriteLine($"Cedula: {cedula[i]}");
-                Console.WriteLine($"Nombre: {nombre[i]}");
-                Console.WriteLine($"Direccion: {direccion[i]}");
-                Console.WriteLine($"Telefono: {telefono[i]}");
-                Console.WriteLine($"Salario: {salario[i]}");
-                Console.WriteLine(" ");
+                // Verifica si la cédula no está vacía (elemento no eliminado)
+                if (!string.IsNullOrWhiteSpace(cedula[i]))
+                {
+                    Console.WriteLine(" ");
+                    Console.WriteLine($"Cedula: {cedula[i]}");
+                    Console.WriteLine($"Nombre: {nombre[i]}");
+                    Console.WriteLine($"Direccion: {direccion[i]}");
+                    Console.WriteLine($"Telefono: {telefono[i]}");
+                    Console.WriteLine($"Salario: {salario[i]}");
+                    Console.WriteLine(" ");
+                }
             }
 
             Console.WriteLine("Presione una tecla para continuar...");
